@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Ecommerce.Web.Model.InvoiceMasterViewModel>
+
+@{ ViewData["Title"] = "Admin Home"; }
+
+<hr />
+
+<div class="well">
+    @Html.ActionLink("Add Product", "Create", "Product")
+</div>
+
+<h2>Invoice</h2>
+
+@if (Model != null)
+{<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.productid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.userid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.shopdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.price)*@
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ decimal runningTotal = 0M; }
+            @foreach (var item in Model)
+            {
+                runningTotal += item.quantity;
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shopdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(model => model.price)*@
+                    </td>
+                    <td>
+                        <!--Html.DisplayFor(modelItem => item.Photo)-->
+                        @*<img src="~/ProductImages/@item.Photo" width="100" height="100" />*@
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("View", "ProductDetail", new { productId = item.Id })*@
+                    </td>
+                </tr>
+                }
+        </tbody>
+    </table>
+                    <h3>Invoice Total: @runningTotal</h3> }
+                                else
+                                {
+
+                    <h4>No Invoice found</h4>}

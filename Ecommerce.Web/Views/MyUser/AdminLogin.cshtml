@@ -1,0 +1,27 @@
+﻿@{ ViewData["Title"] = "Login"; }
+
+<link href="~/css1/style.css" rel="stylesheet" />
+<p></p>
+
+
+<div class="w3l-loginblock signinform">
+    <div class="logo">
+        <a class="brand-logo">Admin Login</a>
+    </div>
+    <!-- main content -->
+    <div class="row map-content-9">
+        <div class="info-grids">
+            <form method="post" action="/MyUser/AdminLogin">
+                <div class="form-grid">
+                    <div class="input-field">
+                        <label> Username or Email </label>
+                        <input type="text" class="form-control" id="uid" name="uid" placeholder="enter admin uid" />
+                    </div>
+                    <div class="input-field">
+                        <label> Password</label>
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="enter admin pwd" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-style">Login now</button>
+            </form>
+        </div>

@@ -1,0 +1,47 @@
+﻿@model Ecommerce.Web.Model.MyUserViewModel
+
+@{ ViewData["Title"] = "Register"; }
+
+<link href="~/css1/style.css" rel="stylesheet" />
+<p></p>
+<div class="w3l-loginblock signinform">
+    <div class="logo">
+        <a class="brand-logo">SignUp form</a>
+    </div>
+    <!-- main content -->
+    <div class="row map-content-9">
+        <div class="info-grids">
+            <form method="post">
+                <div class="form-grid">
+                    <div class="input-field">
+                        <label> Email </label>
+                        <input class="form-control" asp-for="Email" />
+                    </div>
+                    <div class="input-field">
+                        <label> Password</label>
+                        <input class="form-control" asp-for="Pwd" type="password" />
+                    </div>
+                    <div class="input-field">
+                        <label> User Id</label>
+                        <input class="form-control" asp-for="Id" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-style">SignUp</button>
+            </form>
+        </div>
+        <div class="info-grids social-login-details align-self">
+            <p class="text-center mb-3">Or login with</p>
+            <div class="social-media">
+                <a href="#facebook.com" class="fb">
+                    <span class="fa fa-facebook" aria-hidden="true"></span> Login
+                    with facebok
+                </a>
+                <a href="#twitter.com" class="tw">
+                    <span class="fa fa-twitter" aria-hidden="true"></span>
+                    Login with twitter
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+
