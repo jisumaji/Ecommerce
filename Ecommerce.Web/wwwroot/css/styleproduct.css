@@ -9,7 +9,6 @@
 }
 
 
-
     .prod-info-main .product-image {
         background-color: #EBF8FE;
         display: block;
@@ -377,6 +376,7 @@
         position: relative
     }
 }
+
 <style >
 * {
     box-sizing: border-box;
