@@ -6,9 +6,14 @@
 
 @*<link rel="stylesheet" href="~/css/styleproduct.css" />*@
 
+<style>
+    .hover:hover {
+        color: blueviolet;
+        background-image: linear-gradient(to right,#000428, #004e92);
+    }
+</style>
 
-
-<h2>Products</h2>
+<h2 class="text-center">Products</h2>
 @if (Model != null)
 {
     @*<table class="table table-striped">
@@ -30,25 +35,24 @@
     <tbody>*@
     @foreach (var item in Model)
     {
-        <div class="container">
-            <div class="card" style="background-color:lightblue;border-radius:20px;">
-                <h1 class="text-center">
+        <div class="container-fluid">
+            <div class=" hover card shadow-lg mb-4" style="background-color:lightblue;border-radius:20px;">
+                <h2 class="text-center mb-1">
                     @Html.DisplayFor(modelItem => item.Name)
-                </h1>
-                <hr />
-                <div class="row shadow-lg" style=";display:flex;justify-content:start">
+                </h2>
+                <div class="row" style=";display:flex;justify-content:start">
                     <div class="col-md-4">
-                        <img src="~/ProductImages/@item.Photo" width="250" height="250" style="border-radius:20px;margin:5px 5px 5px 5px;" />
+                        <img src="~/ProductImages/@item.Photo" width="200" height="200" style="border-radius:20px;margin:5px 5px 5px 5px;" />
                     </div>
-                    <div class="col-md-4 card-body">
+                    <div class="col-md-4">
                         @*<div>
                 @Html.DisplayFor(modelItem => item.Name)
                 </div>*@
                         <div>
-                            <h1>Price : @Html.DisplayFor(modelItem => item.Price)</h1>
+                            <h2>Price : @Html.DisplayFor(modelItem => item.Price)</h2>
                         </div>
                         <div>
-                            <h3>@Html.ActionLink("View", "ProductDetail", new { productId = item.Id })</h3>
+                            <h4>@Html.ActionLink("View", "ProductDetail", new { productId = item.Id })</h4>
                         </div>
                     </div>
                 </div>
