@@ -48,6 +48,9 @@
 
     @Html.Raw(JavaScriptSnippet.FullScript)
     <style>
+        body {
+            background: radial-gradient(circle, #ade1f0 0%, #68a8ba 100%);
+        }
 
         a:link {
             text-decoration: none;
@@ -98,7 +101,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-dark">
             <img class="logo img-circle" src="~/images/logo.png" />
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">FirstFly Toy</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Toy Kingdom</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

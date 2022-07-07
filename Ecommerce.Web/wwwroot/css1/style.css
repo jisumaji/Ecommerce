@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 --*/
 
 /* reset code */
-html {
+/*html {
     scroll-behavior: smooth;
 }
 
@@ -32,10 +32,10 @@ html {
 * {
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
-}
+}*/
 
 /*  wrapper */
-.wrapper {
+/*.wrapper {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -65,11 +65,11 @@ html {
     .wrapper {
         max-width: 1140px;
     }
-}
+}*/
 
 /*  /wrapper */
 
-.d-grid {
+/*.d-grid {
     display: grid;
 }
 
@@ -127,12 +127,12 @@ img {
 
 .text-center {
     text-align: center;
-}
+}*/
 
 /*-- //Reset-Code --*/
 
 
-.signinform {
+/*.signinform {
     padding: 50px 30px;
 }
 
@@ -393,4 +393,4 @@ a.brand-logo {
     p {
         font-size: 17px;
     }
-}
+}*/

@@ -3,45 +3,66 @@
 @{
     ViewData["Title"] = "Login";
 }
-<link href="~/css1/style.css" rel="stylesheet" />
-<div class="w3l-loginblock signinform">
+<style>
+    .left {
+        margin-left: 25px;
+    }
 
-    <!-- main content -->
-    <div class="row map-content-9">
-        <div class="info-grids">
-            <div class="logo">
-                <a class="brand-logo">User Login</a>
+    img {
+        width: 350px;
+        height: 250px;
+        margin-right: 15px;
+    }
+
+    .card {
+        background-color: #0e344f;
+    }
+
+    .button {
+    }
+</style>
+<div class="container text-white">
+    <div class="card mx-auto mt-lg-5" style="width:700px;border-radius:15px;">
+        <h2 class="text-center">User Login</h2>
+        <hr />
+        <div class="row mb-4" style="display:flex;justify-content:center;">
+            <div class="col">
+                <form method="post">
+                    <div class="form gap-3 d-grid">
+                        <div class="left">
+                            <label class="form-label"> UserId or Email </label>
+                            <input class="form-control" asp-for="Email" />
+                        </div>
+                        <div class="left">
+                            <label class="form-labbel"> Password</label>
+                            <input class="form-control" asp-for="Pwd" type="password" />
+                        </div>
+                        <div class="left button mt-5">
+                            <button type="submit" class="btn-success form-control">Login now</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <form method="post">
-                <div class="form-grid">
-                    <div class="input-field">
-                        <label> UserId or Email </label>
-                        <input class="form-control" asp-for="Email" />
-                    </div>
-                    <div class="input-field">
-                        <label> Password</label>
-                        <input class="form-control" asp-for="Pwd" type="password" />
-                    </div>
+            <div class="col me-3">
+                @*<p class="text-center mb-3">Or login with</p>
+                <div class="text-center">
+                <a href="https://www.facebook.com">
+                <span class="fa fa-facebook" aria-hidden="true"></span> Login
+                with facebook
+                </a>
+                <a href="https://www.twitter.com" class="text-center">
+                <span class="fa fa-twitter" aria-hidden="true"></span>
+                Login with twitter
+                </a>
                 </div>
-                <button type="submit" class="btn btn-primary btn-style">Login now</button>
-            </form>
-        </div>
-        <div class="info-grids social-login-details align-self">
-            <p class="text-center mb-3">Or login with</p>
-            <div class="social-media">
-                <a href="https://www.facebook.com" class="fb">
-                    <span class="fa fa-facebook" aria-hidden="true"></span> Login
-                    with facebook
-                </a>
-                <a href="https://www.twitter.com" class="tw">
-                    <span class="fa fa-twitter" aria-hidden="true"></span>
-                    Login with twitter
-                </a>
-            </div>
-            <p class="text-center mt-4">
+                <p class="text-center mt-4">
                 Not yet registered? <a href="#signup">signup</a>
                 here
-            </p>
+                </p>*@
+                <div>
+                    <img class="img-rounded" src="https://media.istockphoto.com/vectors/login-page-on-laptop-screen-notebook-and-online-login-form-sign-in-vector-id1135341047?k=20&m=1135341047&s=612x612&w=0&h=ai30N4N8VC_uylITs2bWfJ0k3GzbWn-q0nR664tj0tk=" />
+                </div>
+            </div>
         </div>
     </div>
 </div>
