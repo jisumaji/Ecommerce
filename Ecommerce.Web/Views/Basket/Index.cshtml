@@ -4,59 +4,85 @@
     ViewData["Title"] = "Basket";
 }
 
-<h2>Basket</h2>
+<style>
+    .card {
+        border-radius: 20px;
+        background-color: lightblue;
+        width: 600px;
+    }
 
-@if (Model.Any())
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Product.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Product.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Quantity)
-                </th>                
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-               
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product.Name)
-                </td>   
-                <td>@Html.DisplayFor(modelItem => item.Product.Price)</td>
-                <td>
-                    @Html.DropDownListFor(modelItem => item.Quantity,
-                        Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() })
-                        , new { @onchange = "$('.update"+@item.Id+ "').attr('href',$('.update" + @item.Id + "').attr('href')+this.value);",  @class = "qty" + @item.Id }
-                        )
-                    @Html.ActionLink("Update Quantity", "ChangeQuantity", "Basket",
-                       routeValues: new { basketItemId = item.Id, quantity = "0" }, htmlAttributes: new { @class="update"+@item.Id})
-                </td>                
-                <td>
-                    @Html.ActionLink("Remove from basket", "DeleteItemFromBasket", "Basket", routeValues: new { basketItemId = item.Id }, htmlAttributes: null)
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
+        .card:hover {
+            color: blueviolet;
+            background-image: linear-gradient(to right,#000428, #004e92);
+        }
 
-    <hr/>
-    @Html.ActionLink("Checkout", "Checkout", "Basket")
-    <hr/>
-    @Html.ActionLink("Remove All Item from basket", "DeleteAllBasketItems", "Basket", routeValues: new { userId = 1 }, htmlAttributes: null)
-}
-else
-{
-    <div>Your basket is empty</div>
+    img {
+        border-radius: 20px;
+        margin: 5px 5px 5px 5px;
+        width: 200px;
+        height: 200px
+    }
+</style>
+<h2 class="text-center">Basket</h2>
+<div class="container">
+    @if (Model.Any())
+    {
 
-}
-<br />
-<a href="../Product/Index">Back to Products</a>
 
+        @foreach (var item in Model)
+        {
+
+            <div class="card mb-5 shadow-lg mx-auto">
+
+                <div class="row">
+                    <div class="col">
+                        <img class="ms-4" src="~/ProductImages/@item.Product.Photo" />
+
+                    </div>
+                    <div class="col d-flex flex-column">
+                        <div class="h3">
+                            Name: @Html.DisplayFor(modelItem => item.Product.Name)
+                        </div>
+                        <div class="h3">
+                            Price : @Html.DisplayFor(modelItem => item.Product.Price)
+                        </div>
+                        <div class="h3">
+                            Quantity : @item.Quantity
+                            @* @Html.DropDownListFor(modelItem => item.Quantity,
+                    Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() })
+                    , new { @onchange = "$('.update"+@item.Id+ "').attr('href',$('.update" + @item.Id + "').attr('href')+this.value);",  @class = "qty" + @item.Id }
+                    )*@
+
+                            @* @Html.ActionLink("Update Quantity", "ChangeQuantity", "Basket",
+                    routeValues: new { basketItemId = item.Id, quantity = "0" }, htmlAttributes: new { @class="update"+@item.Id})
+
+
+                    <a asp-action="ChangeQuantity" asp-controller="Basket" asp-route-basketItemId="8" asp-route-quantity="6">Update</a>
+                    *@
+                        </div>
+                        <div class="ms-auto mt-auto mb-4 me-5">
+                            @Html.ActionLink("Remove", "DeleteItemFromBasket", "Basket", routeValues: new { basketItemId = item.Id }, htmlAttributes: new {@class="btn-danger btn-lg"})
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        }
+        <div class="d-flex justify-content-around">
+            @Html.ActionLink("Checkout", "Checkout", "Basket", null, new { @class= "btn-lg btn-success"})
+            @Html.ActionLink("Empty basket", "DeleteAllBasketItems", "Basket", routeValues: new { userId = 1 }, htmlAttributes:new { @class= "btn-lg btn-danger"})
+        </div>
+        @*         @Html.ActionLink("Checkout", "Checkout", "Basket", null, new { @class= "btn-lg btn-success"})
+    @Html.ActionLink("Remove All Item from basket", "DeleteAllBasketItems", "Basket", routeValues: new { userId = 1 }, htmlAttributes: null)*@
+    }
+    else
+    {
+        <div class="text-center h1">Your basket is empty</div>
+
+    }
+    <div class="d-flex justify-content-center mt-5">
+        <a href="../Product/Index" class="btn-dark btn-lg">Back to Products</a>
+    </div>
+</div>

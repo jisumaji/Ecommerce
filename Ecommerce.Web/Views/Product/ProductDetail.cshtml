@@ -3,76 +3,63 @@
 @{
     ViewData["Title"] = "Product Detail";
 }
+<style>
+    .card {
+        border-radius: 15px;
+        width: 500px;
+        background-color: #0e344f;
+    }
 
-<h2>Product Detail</h2>
-@if (Model != null)
-{
+    .white {
+        color: white;
+    }
+</style>
+<div class="container">
+    <div class="mx-auto card">
+        <h2 class="text-center white">Product Detail</h2>
+        @if (Model != null)
+        {
+            <div class="mx-auto">
 
-    <table with="65%">
-        <tr>
-            <td>
-                <div>
-                    <hr />
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </dt>
-                        <dd>
-                            @Html.DisplayFor(model => model.Name)
-                        </dd>
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Price)
-                        </dt>
-                        <dd>
-                            @Html.DisplayFor(model => model.Price)
-                        </dd>
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Desciption)
-                        </dt>
-                        <dd>
-                            @Html.DisplayFor(model => model.Desciption)
-                        </dd>
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Photo)
-                            
-                        </dt>
-                        <dd>
-                            @Html.DisplayFor(model => model.Photo)
-                        </dd>
-                        <dt></dt>
-                        <dd>
-                            <div>
-
-                                <img src="~/ProductImages/@Url.Content(Model.Photo)" width="300" height="300" />
-
-
-                                @using (Html.BeginForm("AddItemIntoBasket", "Basket", FormMethod.Post))
-                                {
-                            @Html.HiddenFor(m => m.Id)
-                                                @Html.DropDownList("Quantity", Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
-                                                                    @Html.Hidden("UserId", 1)
-                                                                                        <input type="submit" class="btn-primary" value="Add Basket" />}
-                            </div>
-                        </dd>
-                    </dl>
-                </div>
-            </td>
-            <td>
-                
-            </td>
-        </tr>
-    </table>
+                <img class="img-rounded" src="~/ProductImages/@Url.Content(Model.Photo)" width="300" height="300" />
 
 
 
-}
-else
-{
-    <div>
-        No product found
+            </div>
+            <div class="row text-center">
+                <h3 class="white">
+                    @Html.DisplayNameFor(model => model.Name) :
+
+                    @Html.DisplayFor(model => model.Name)
+                </h3>
+                <h3 class="white">
+                    @Html.DisplayNameFor(model => model.Price) :
+
+                    @Html.DisplayFor(model => model.Price)
+                </h3>
+                <h3 class="white">
+
+                    @Html.DisplayFor(model => model.Desciption)
+                </h3>
+                <h3>
+                    @using (Html.BeginForm("AddItemIntoBasket", "Basket", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(m => m.Id)
+                        @Html.DropDownList("Quantity", Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+                        @Html.Hidden("UserId", 1)
+                        <input type="submit" class="btn-success" value="Add Basket" />
+                    }
+                </h3>
+            </div>
+        }
+        else
+        {
+            <div class="white text-center mt-lg-5">
+                <h2>No product found</h2>
+            </div>
+        }
+        <div class="mx-auto mb-5 mt-2">
+            <a class="btn-info btn-lg" asp-action="Index">Back to List</a>
+        </div>
     </div>
-}
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
