@@ -1,27 +1,47 @@
-﻿@{ ViewData["Title"] = "Login"; }
+﻿@{
+    ViewData["Title"] = "Login";
+}
 
-<link href="~/css1/style.css" rel="stylesheet" />
-<p></p>
+<style>
+    .left {
+        margin-left: 25px;
+    }
 
+    img {
+        width: 350px;
+        height: 250px;
+        margin-right: 15px;
+    }
 
-<div class="w3l-loginblock signinform">
-    <div class="logo">
-        <a class="brand-logo">Admin Login</a>
-    </div>
-    <!-- main content -->
-    <div class="row map-content-9">
-        <div class="info-grids">
-            <form method="post" action="/MyUser/AdminLogin">
-                <div class="form-grid">
-                    <div class="input-field">
-                        <label> Username or Email </label>
-                        <input type="text" class="form-control" id="uid" name="uid" placeholder="enter admin uid" />
+    .card {
+        background-color: #0e344f;
+    }
+</style>
+<div class="container text-white">
+    <div class="card mx-auto mt-lg-5" style="width:700px;border-radius:15px;">
+        <h2 class="text-center">Admin Login</h2>
+        <hr />
+        <div class="row mb-4" style="display:flex;justify-content:center;">
+            <div class="col">
+                <form method="post" action="/MyUser/AdminLogin">
+                    <div class="form gap-3 d-grid">
+                        <div class="left">
+                            <label class="form-label"> Username or Email </label>
+                            <input type="text" class="form-control" id="uid" name="uid" placeholder="enter admin uid" />
+                        </div>
+                        <div class="left">
+                            <label class="form-label"> Password</label>
+                            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="enter admin pwd" />
+                        </div>
+                        <div class="left mt-5">
+                            <button type="submit" class="btn-success form-control">Login now</button>
+                        </div>
                     </div>
-                    <div class="input-field">
-                        <label> Password</label>
-                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="enter admin pwd" />
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-style">Login now</button>
-            </form>
+                </form>
+            </div>
+            <div class="col me-3">
+                <img class="img-rounded" src="https://thumbs.dreamstime.com/b/admin-sign-laptop-icon-stock-vector-166205404.jpg" />
+            </div>
         </div>
+    </div>
+</div>
