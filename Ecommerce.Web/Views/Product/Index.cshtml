@@ -44,15 +44,15 @@
                     <div class="col-md-4">
                         <img src="~/ProductImages/@item.Photo" width="200" height="200" style="border-radius:20px;margin:5px 5px 5px 5px;" />
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 d-flex flex-column">
                         @*<div>
                 @Html.DisplayFor(modelItem => item.Name)
                 </div>*@
                         <div>
                             <h2>Price : @Html.DisplayFor(modelItem => item.Price)</h2>
                         </div>
-                        <div>
-                            <h4>@Html.ActionLink("View", "ProductDetail", new { productId = item.Id })</h4>
+                        <div class="mt-auto mb-5">
+                            <h4>@Html.ActionLink("View", "ProductDetail", new { productId = item.Id },new {@class="btn-primary btn-lg"})</h4>
                         </div>
                     </div>
                 </div>

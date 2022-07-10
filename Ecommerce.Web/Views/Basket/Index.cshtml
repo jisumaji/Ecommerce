@@ -27,8 +27,6 @@
 <div class="container">
     @if (Model.Any())
     {
-
-
         @foreach (var item in Model)
         {
 
@@ -44,21 +42,27 @@
                             Name: @Html.DisplayFor(modelItem => item.Product.Name)
                         </div>
                         <div class="h3">
-                            Price : @Html.DisplayFor(modelItem => item.Product.Price)
+                            Price :
+
+                            @*@Html.DisplayFor(modelItem => item.Product.Price)*@
+
+                            @{
+                                var x = item.Product.Price * item.Quantity;
+                            }
+                            @x
                         </div>
                         <div class="h3">
                             Quantity : @item.Quantity
-                            @* @Html.DropDownListFor(modelItem => item.Quantity,
+                            @Html.DropDownListFor(modelItem => item.Quantity,
                     Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() })
                     , new { @onchange = "$('.update"+@item.Id+ "').attr('href',$('.update" + @item.Id + "').attr('href')+this.value);",  @class = "qty" + @item.Id }
-                    )*@
+                    )
 
-                            @* @Html.ActionLink("Update Quantity", "ChangeQuantity", "Basket",
+                            @Html.ActionLink("Update", "ChangeQuantity", "Basket",
                     routeValues: new { basketItemId = item.Id, quantity = "0" }, htmlAttributes: new { @class="update"+@item.Id})
 
 
-                    <a asp-action="ChangeQuantity" asp-controller="Basket" asp-route-basketItemId="8" asp-route-quantity="6">Update</a>
-                    *@
+
                         </div>
                         <div class="ms-auto mt-auto mb-4 me-5">
                             @Html.ActionLink("Remove", "DeleteItemFromBasket", "Basket", routeValues: new { basketItemId = item.Id }, htmlAttributes: new {@class="btn-danger btn-lg"})

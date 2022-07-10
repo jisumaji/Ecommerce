@@ -52,7 +52,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="wwwroot\ProductImages\" />
   </ItemGroup>
 
 </Project>
